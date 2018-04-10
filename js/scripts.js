@@ -36,6 +36,7 @@ function generateEditableTable(){
 	}
 	table += "</table>"
 	document.getElementById("fridgeContent").innerHTML = table
+	document.getElementById('addContent').style.display = "block"
 }
 
 function saveEditedFridge(){
@@ -71,10 +72,58 @@ function generateListOfFoods(elementId){
 	document.getElementById(elementId).innerHTML = foodListHTML
 }
 
+var slist = [ 
+	'Apples',
+	'Bananas',
+	'Carrots',
+	'Chips',
+	'Lime Juice',
+	'Strawberries'
+]
 
 
+function generateSlist(){
+	if (localStorage.slist) {
+		slist = JSON.parse(localStorage.getItem("slist"))
+	}
+	
 
+	var list = "<p>"
+	for (var i = 0; i < slist.length ; i++){
+		list += "<br>"+ "<div class=sitem>" + slist[i] + "</div>"
+	}
+	list += "</p>"
+	document.getElementById("slistContent").innerHTML = list
+}
 
+function generateEditableForm(){
+
+	document.getElementById("editFormButton").style.display = "none"
+	document.getElementById("listsaveButton").style.display = "inline-block"
+
+	var inputFieldHTML = "<input id='inputFood' placeholder='Item'></input>"
+
+	document.getElementById("addSlistContent").innerHTML = inputFieldHTML
+	document.getElementById('addSlistContent').style.display = "block"
+}
+
+function saveEditedList(){
+	var items =  Array.from(document.getElementsByClassName('sitem'));
+	
+	var newSlist = []
+	for (var i = 0; i < items.length; i++){
+		newSlist.push(items[i].innerHTML)
+	}
+	if (document.getElementById('inputFood').value){
+		newSlist.push(document.getElementById('inputFood').value)
+	}	
+
+	localStorage.setItem("slist", JSON.stringify(newSlist));
+	generateSlist()
+	document.getElementById("editFormButton").style.display = "inline-block"
+	document.getElementById("listsaveButton").style.display = "none"
+	document.getElementById('addSlistContent').style.display = "none"
+}
 
 
 

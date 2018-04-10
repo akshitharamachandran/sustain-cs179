@@ -13,15 +13,55 @@
 		<form id="recipeFoodList"></form>
 		<p>Select the type of recipe you are looking to make:</p>
 		<form>
-		  <input type="checkbox">Breakfast<br>
-		  <input type="checkbox">Lunch<br>
-		  <input type="checkbox">Dinner<br>
-		  <input type="checkbox">Dessert<br>
+		  <input type="radio" name="meal">Breakfast<br>
+		  <input type="radio" name="meal">Lunch<br>
+		  <input type="radio" name="meal">Dinner<br>
+		  <input type="radio" name="meal">Dessert<br>
 		</form>
 		<br>
-		<button onclick="alert('TODO js functionality')">Get Recipes</button>
+		<button id ="myBtn">Get Recipes</button>
 		<br>
 		<button onclick="window.location.href='home.html'">RETURN HOME</button>
 	<div>
+
+	<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <span class="close">&times;</span>
+		    <p id="confirmModalText"></p>
+		  </div>
+
+		</div>
+		<script>
+		// Get the modal
+		var modal = document.getElementById('myModal');
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+		    modal.style.display = "block";
+		    var modalText = "Congrats! You just earned 10 points! <br> Based off of your input we have found 1 possible recipe for you: <br><br>Banana Bread<br><br><img width='20%'' src='img/bread.png' alt='Bread Image'><br><br> Ingredients From Your Fridge: Bananas, Milk, Eggs <br> Other Ingredients: Butter Baking Soda, Salt,... <br><br> Difficulty............................4.5/5 <br>Time.........................50 Minutes<br>Feedback.............................5/5<br><br>Directions:<br><br>1) Preheat the oven to 350°F (175°C), and butter a 4x8-inch loaf pan.<br>2) In a mixing bowl, mash the ripe bananas with a fork until completely smooth. Stir the melted butter into the mashed bananas.<br>..."
+		    document.getElementById("confirmModalText").innerHTML = modalText
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		    modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
+		</script>	
 </body>
 </html>

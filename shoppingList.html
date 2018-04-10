@@ -5,14 +5,15 @@
 	<script src="js/scripts.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<body>
+<body onload="generateSlist()">
 	<div class="bodyContent">
 		<h1>Sustain</h1>
 		<p>My Shopping List:</p>
-		<p>Apples<br>Bananas<br>Carrots<br>Chips<br>Lime Juice<br>Strawberries</p>
+		<div id="slistContent"></div>
 		<br>
-		<button onclick="alert('TODO js functionality')">Add Item</button>
-		<button onclick="alert('TODO add modal to edit settings')">Edit Permissions</button>
+		<div id='addSlistContent'></div>
+		<button id="editFormButton" onclick="generateEditableForm()">Add Item</button>
+		<button id='listsaveButton' onclick='saveEditedList()' style='display: none'>Save</button>
 		<br>
 		<button onclick="window.location.href='home.html'">RETURN HOME</button>
 	<div>
