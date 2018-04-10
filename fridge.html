@@ -12,7 +12,9 @@
 		<br>
 		<div id="fridgeContent">
 		</div>
-		<div id='addContent'></div>
+		<div id='addContent' style='display: none'>
+			<input id='inputItem' placeholder='Item'></input><input id='inputQuantity' placeholder='Quantity'></input><input id='inputExpiration' placeholder='Expiration'></input>
+		</div>
 		<button id="editTableButton" onclick="generateEditableTable()">Manually Add/Edit Item</button>
 		<button id='saveButton' onclick='saveEditedFridge()' style='display: none'>Save</button>
 		<button onclick="window.location.href='recipes.html'">Get Recipes</button>

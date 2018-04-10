@@ -25,13 +25,10 @@ function generateFridge(){
 }
 
 function generateEditableTable(){
-
 	document.getElementById("editTableButton").style.display = "none"
 	document.getElementById("saveButton").style.display = "inline-block"
 
-	var inputFieldHTML = "<input id='inputItem' placeholder='Item'></input><input id='inputQuantity' placeholder='Quantity'></input><input id='inputExpiration' placeholder='Expiration'></input>"
-
-	document.getElementById("addContent").innerHTML = inputFieldHTML
+	document.getElementById("addContent").style.display = "block" 
 
 	var table = "<p>Click on any field to edit it</p><table align='center'><tr><td>Item</td><td>Quantity</td><td>Expiration</td></tr>"
 	for (var item in fridge){
@@ -62,3 +59,23 @@ function saveEditedFridge(){
 	document.getElementById("saveButton").style.display = "none"
 	document.getElementById('addContent').style.display = "none"
 }
+
+function generateListOfFoods(elementId){
+	var foodListHTML = ""
+	if (localStorage.fridge) {
+		fridge = JSON.parse(localStorage.fridge)
+	}
+	for (var food in fridge){
+		foodListHTML += "<input type='checkbox'>" + food + "</input><br>"
+	}
+	document.getElementById(elementId).innerHTML = foodListHTML
+}
+
+
+
+
+
+
+
+
+
