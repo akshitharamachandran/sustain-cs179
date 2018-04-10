@@ -14,9 +14,48 @@
 		<p><b>Fruits:</b> $63 of $130 Spent</p>
 		<p><b>Vegetables:</b> $138 of $170 Spent</p>
 		<p><b>Meat:</b> $234 of $270 Spent</p>
-		<button onclick="window.location.href='leaderboard.html'">View Leaderboard</button>
+		<button id ="myBtn">View Leaderboard</button>
 		<br>
 		<button onclick="window.location.href='home.html'">RETURN HOME</button>
 	<div>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <p id="confirmModalText"></p>
+	  </div>
+
+	</div>
+	<script>
+	// Get the modal
+	var modal = document.getElementById('myModal');
+
+	// Get the button that opens the modal
+	var btn = document.getElementById("myBtn");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {
+	    modal.style.display = "block";
+	    var modalText = "Leaderboard: <br><br> <table align='center'> <tbody> <tr> <th>Rank</th> <th>Username</th> <th>Points</th> </tr> <tr> <td>1</td> <td>Nam</td> <td>102,345</td> </tr> <tr> <td>2</td> <td>Akshitha</td> <td>101,321</td> </tr> <tr> <td>3</td> <td>Nik</td> <td>96,321</td> </tr> <tr> <td>4</td> <td>Greg</td> <td>96,321</td> </tr> <tr> <td>3</td> <td>Sathvik</td> <td>91,321</td> </tr> <tr> <td>5</td> <td>Rory</td> <td>86,423</td> </tr> <tr> <td>6</td> <td>Eric</td> <td>79,493</td> </tr> <tr> <td>7</td> <td>Joe</td> <td>58,583</td> </tr> <tr> <td>8</td> <td>Han</td> <td>55,373</td> </tr> <tr> <td>9</td> <td>Allison</td> <td>30,049</td> </tr> <tr> <td>10</td> <td>Jonathan</td> <td>29,043</td> </tr> <tr> <td>...</td> <td>...</td> <td>...</td> </tr> <tr> <td>29343</td> <td>You</td> <td>20</td> </tr> </tbody> </table>"
+	    document.getElementById("confirmModalText").innerHTML = modalText
+	}
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	    modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
+	}
+	</script>	
 </body>
 </html>

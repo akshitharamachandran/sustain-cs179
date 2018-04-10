@@ -1,7 +1,3 @@
-// TODO
-
-console.log("hi")
-
 var fridge = {
 		Apples : ["12", "4/4"],
 		Eggs : ["14", "4/5"],
