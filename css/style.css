@@ -19,6 +19,13 @@ p {
     outline: none;
 }
 
+.landingCenter {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
 .sustainButton {
 	width: 150px;
 	height: 25px;
@@ -126,9 +133,4 @@ tr:nth-child(odd) {
     color: white;
 }
 
-.landingCenter {
-    position: absolute;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-}
+
