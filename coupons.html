@@ -4,29 +4,58 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="js/scripts.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<div class="topnav">
-	  <a class="active" href='home.html'>Home</a>
-	  <a href='fridge.html'>My Fridge</a>
-	  <a href='shoppingList.html'>My Shopping List</a>
-	  <a href='coupons.html'>My Coupons</a>
-	  <a href='donate.html'>Donate Near Me</a>
-	  <a href='savings.html'>My Savings</a>
-	  <a href='settings.html'>Settings</a>
-	</div>
-	<div class="bodyContent">
-		<h1>Sustain</h1>
-		<p>Coupons are available at the following stores that you shop at:</p>
-		<br>
-		<p>You have 5 coupons, totaling $75 in savings at Costco:</p>
-		<img width="20%" src="img/costcoCoupon.png" alt="Costco Coupon">
-		<br>
-		<p>You have 2 coupons, totaling $30 in savings at Stop & Shop:</p>
-		<img width="20%" src="img/s&sCoupon.png" alt="Stop & Shop Logo">
-		<br>
-		<button onclick="window.location.href='home.html'">RETURN HOME</button>
+	<!-- Nav Bar  -->
+	<nav class="navbar navbar-default">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="home.html">Sustain</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	      	<li><a class="nav-item nav-link" href="fridge.html">Fridge</a></li>
+	      	<li><a class="nav-item nav-link" href="shoppingList.html">Shopping List</a></li>
+	        <li class="active"><a href="coupons.html">Coupons<span class="sr-only">(current)</span></a></li>
+	        <li><a class="nav-item nav-link" href="donate.html">Donate</a></li>
+	        <li><a class="nav-item nav-link" href="savings.html">Savings</a></li>
+	        <li><a class="nav-item nav-link" href="settings.html">Settings</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a onclick="Logout()" href="index.html">Logout</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div class="bodyContent container">
+		<div class="jumbotron">
+			<h1>Sustain</h1>
+			<p>Coupons are available at the following stores that you shop at:</p>
+			<br>
+			<p>You have 5 coupons, totaling $75 in savings at Costco:</p>
+			<img width="20%" src="img/costcoCoupon.png" alt="Costco Coupon">
+			<br>
+			<p>You have 2 coupons, totaling $30 in savings at Stop & Shop:</p>
+			<img width="20%" src="img/s&sCoupon.png" alt="Stop & Shop Logo">
+		</div>
 	<div>
 </body>
 </html>

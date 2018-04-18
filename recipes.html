@@ -4,25 +4,70 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="js/scripts.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body onload="generateListOfFoods('recipeFoodList')">
-	<div class="bodyContent">
-		<h1>Sustain</h1>
-		<p>Select all the food products from your fridge that you would like to include in your recipe!</p>
-		<br>
-		<form id="recipeFoodList"></form>
-		<p>Select the type of recipe you are looking to make:</p>
-		<form>
-		  <input type="radio" name="meal">Breakfast<br>
-		  <input type="radio" name="meal">Lunch<br>
-		  <input type="radio" name="meal">Dinner<br>
-		  <input type="radio" name="meal">Dessert<br>
-		</form>
-		<br>
-		<button id ="myBtn">Get Recipes</button>
-		<br>
-		<button onclick="window.location.href='home.html'">RETURN HOME</button>
+	<!-- Nav Bar  -->
+	<nav class="navbar navbar-default">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="home.html">Sustain</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a class="nav-item nav-link" href="shoppingList.html">Fridge</a></li>
+	        <li><a class="nav-item nav-link" href="shoppingList.html">Shopping List</a></li>
+	        <li><a class="nav-item nav-link" href="coupons.html">Coupons</a></li>
+	        <li><a class="nav-item nav-link" href="donate.html">Donate</a></li>
+	        <li><a class="nav-item nav-link" href="savings.html">Savings</a></li>
+	        <li><a class="nav-item nav-link" href="settings.html">Settings</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a onclick="Logout()" href="index.html">Logout</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div class="bodyContent container">
+		<div class="jumbotron">
+			<h1>Sustain</h1>
+			<p>Select all the food products from your fridge that you would like to include in your recipe!</p>
+			<form id="recipeFoodList"></form>
+			<p>Select the type of recipe you are looking to make:</p>
+			 <form>
+			    <div class="radio">
+			      <label><input type="radio" name="optradio">Breakfast</label>
+			    </div>
+			    <div class="radio">
+			      <label><input type="radio" name="optradio">Lunch</label>
+			    </div>
+			    <div class="radio">
+			      <label><input type="radio" name="optradio">Dinner</label>
+			    </div>
+			    <div class="radio">
+			      <label><input type="radio" name="optradio">Dessert</label>
+			    </div>
+			</form>
+			<br>
+			<button class="btn btn-primary" id ="myBtn">Get Recipes</button>
+		</div>
 	<div>
 
 	<!-- The Modal -->

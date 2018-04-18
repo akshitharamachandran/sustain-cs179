@@ -4,83 +4,113 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="js/scripts.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body onload="generateListOfFoods('donateFoodList')">
-	<div class="topnav">
-	  <a class="active" href='home.html'>Home</a>
-	  <a href='fridge.html'>My Fridge</a>
-	  <a href='shoppingList.html'>My Shopping List</a>
-	  <a href='coupons.html'>My Coupons</a>
-	  <a href='donate.html'>Donate Near Me</a>
-	  <a href='savings.html'>My Savings</a>
-	  <a href='settings.html'>Settings</a>
+		<!-- Nav Bar  -->
+		<nav class="navbar navbar-default">
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="home.html">Sustain</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		      	<li><a class="nav-item nav-link" href="fridge.html">Fridge</a></li>
+		      	<li><a class="nav-item nav-link" href="shoppingList.html">Shopping List</a></li>
+		      	<li><a class="nav-item nav-link" href="coupons.html">Coupons</a></li>
+		        <li class="active"><a href="donate.html">Donate<span class="sr-only">(current)</span></a></li>
+		        <li><a class="nav-item nav-link" href="savings.html">Savings</a></li>
+		        <li><a class="nav-item nav-link" href="settings.html">Settings</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a onclick="Logout()" href="index.html">Logout</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div class="bodyContent container">
+			<div class="jumbotron">
+				<h1>Sustain</h1>
+				<p>Selecte all the food products that you would like to donate:</p>
+				<form id="donateFoodList"></form>
+				<p>Schedule a date that is best suited for a food carrier to pick up your food:</p>
+			<div style="margin-bottom: 5px">	
+				<select id="month">
+				  <option value="January">January</option>
+				  <option value="February">February</option>
+				  <option value="March">March</option>
+				  <option value="April">April</option>
+				  <option value="May">May</option>
+				  <option value="June">June</option>
+				  <option value="July">July</option>
+				  <option value="August">August</option>
+				  <option value="September">September</option>
+				  <option value="October">October</option>
+				  <option value="November">November</option>
+				  <option value="Decemebt">December</option>
+				</select>
+				<select id="day">
+				  <option value="1">1</option>
+				  <option value="2">2</option>
+				  <option value="2">3</option>
+				  <option value="4">4</option>
+				  <option value="5">5</option>
+				  <option value="6">6</option>
+				  <option value="7">7</option>
+				  <option value="8">8</option>
+				  <option value="9">9</option>
+				  <option value="10">10</option>
+				  <option value="11">11</option>
+				  <option value="12">12</option>
+				  <option value="13">13</option>
+				  <option value="14">14</option>
+				  <option value="15">15</option>
+				  <option value="16">16</option>
+				  <option value="17">17</option>
+				  <option value="18">18</option>
+				  <option value="19">19</option>
+				  <option value="20">20</option>
+				  <option value="21">21</option>
+				  <option value="22">22</option>
+				  <option value="23">23</option>
+				  <option value="24">24</option>
+				  <option value="25">25</option>
+				  <option value="26">26</option>
+				  <option value="27">27</option>
+				  <option value="28">28</option>
+				  <option value="29">29</option>
+				  <option value="30">30</option>
+				  <option value="31">31</option>
+				</select>
+				<select id="year">
+				  <option value="2018">2018</option>
+				  <option value="2019">2019</option>
+				  <option value="2020">2020</option>
+				  <option value="2021">2021</option>
+				</select>
+			</div>	
+				<br>
+				<button class="btn btn-primary" id="myBtn">Confirm Pickup</button>
+				<p>This delivery service is powered by Copia.</p>
+			</div>	
 	</div>
-		<div class="bodyContent">
-			<h1>Sustain</h1>
-			<p>Selecte all the food products that you would like to donate:</p>
-			<br>
-			<form id="donateFoodList"></form>
-			<p>Schedule a date that is best suited for a food carrier to pick up your food:</p>
-			<select id="month">
-			  <option value="January">January</option>
-			  <option value="February">February</option>
-			  <option value="March">March</option>
-			  <option value="April">April</option>
-			  <option value="May">May</option>
-			  <option value="June">June</option>
-			  <option value="July">July</option>
-			  <option value="August">August</option>
-			  <option value="September">September</option>
-			  <option value="October">October</option>
-			  <option value="November">November</option>
-			  <option value="Decemebt">December</option>
-			</select>
-			<select id="day">
-			  <option value="1">1</option>
-			  <option value="2">2</option>
-			  <option value="2">3</option>
-			  <option value="4">4</option>
-			  <option value="5">5</option>
-			  <option value="6">6</option>
-			  <option value="7">7</option>
-			  <option value="8">8</option>
-			  <option value="9">9</option>
-			  <option value="10">10</option>
-			  <option value="11">11</option>
-			  <option value="12">12</option>
-			  <option value="13">13</option>
-			  <option value="14">14</option>
-			  <option value="15">15</option>
-			  <option value="16">16</option>
-			  <option value="17">17</option>
-			  <option value="18">18</option>
-			  <option value="19">19</option>
-			  <option value="20">20</option>
-			  <option value="21">21</option>
-			  <option value="22">22</option>
-			  <option value="23">23</option>
-			  <option value="24">24</option>
-			  <option value="25">25</option>
-			  <option value="26">26</option>
-			  <option value="27">27</option>
-			  <option value="28">28</option>
-			  <option value="29">29</option>
-			  <option value="30">30</option>
-			  <option value="31">31</option>
-			</select>
-			<select id="year">
-			  <option value="2018">2018</option>
-			  <option value="2019">2019</option>
-			  <option value="2020">2020</option>
-			  <option value="2021">2021</option>
-			</select>
-			<br>
-			<button id ="myBtn">Confirm Pickup</button>
-			<br>
-			<button onclick="window.location.href='home.html'">RETURN HOME</button>
-			<p>This delivery service is powered by Copia.</p>
-		</div>
 
 
 
@@ -89,7 +119,7 @@
 		<div id="myModal" class="modal">
 
 		  <!-- Modal content -->
-		  <div class="modal-content">
+		  <div class="modal-content" style="text-align: center">
 		    <span class="close">&times;</span>
 		    <p id="confirmModalText"></p>
 		  </div>

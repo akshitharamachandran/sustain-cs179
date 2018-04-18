@@ -5,6 +5,8 @@ var fridge = {
 		Chicken : ["2", "4/6"],
 		Bananas  : ["5", "4/1"]
 	}
+var allStores = ["Walgreens", "Costco", "Walmart", "Target", "CVS"]
+var myStores = [ "Walgreens", "Costco"]
 
 
 function generateFridge(){
@@ -63,7 +65,7 @@ function generateListOfFoods(elementId){
 		fridge = JSON.parse(localStorage.fridge)
 	}
 	for (var food in fridge){
-		foodListHTML += "<input type='checkbox'>" + food + "</input><br>"
+		foodListHTML += '<div class="checkbox"><label><input type="checkbox" value="">' + food + '</label></div>'
 	}
 	document.getElementById(elementId).innerHTML = foodListHTML
 }
@@ -86,7 +88,7 @@ function generateSlist(){
 
 	var list = "<p>"
 	for (var i = 0; i < slist.length ; i++){
-		list += "<br>"+ "<div class=sitem>" + slist[i] + "</div>"
+		list += "<div class=sitem>" + slist[i] + "</div>"
 	}
 	list += "</p>"
 	document.getElementById("slistContent").innerHTML = list
@@ -120,10 +122,39 @@ function saveEditedList(){
 	document.getElementById("listsaveButton").style.display = "none"
 	document.getElementById('addSlistContent').style.display = "none"
 }
+
+function generateStoreList(){
+	console.log("here")
+	if (localStorage.myStores) {
+		myStores = JSON.parse(localStorage.getItem("myStores"))
+	}
+	var storeHTML = ""
+	for (var i = 0; i < allStores.length; i++){
+		if (myStores.includes(allStores[i])){
+			storeHTML += '<div class="checkbox"><label><input name="store" type="checkbox" value="'+ allStores[i] +'"checked>'+ allStores[i] +'</input></label></div>'
+		}
+		else {
+			storeHTML += '<div class="checkbox"><label><input name="store" type="checkbox" value="'+ allStores[i] +'">'+ allStores[i] +'</input></label></div>'
+		}
+	}
+	document.getElementById("storeForm").innerHTML = storeHTML
+}
+
+function saveStoreSelection(){
+	var items = document.getElementsByName('store');
+	var selectedItems= [];
+	for(var i = 0; i < items.length; i++){
+		if(items[i].type=='checkbox' && items[i].checked==true)
+			selectedItems.push(items[i].value)
+	}
+	localStorage.setItem("myStores", JSON.stringify(selectedItems))
+	document.getElementById('myModal').style.display = "block"
+	var modalText = "Store selections successfully saved!"
+	document.getElementById("confirmModalText").innerHTML = modalText
+}
+
 function Logout(){
 	localStorage.clear();
-	window.location.href='index.html'
-
 }
 
 
