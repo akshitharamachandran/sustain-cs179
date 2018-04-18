@@ -120,6 +120,11 @@ function saveEditedList(){
 	document.getElementById("listsaveButton").style.display = "none"
 	document.getElementById('addSlistContent').style.display = "none"
 }
+function Logout(){
+	localStorage.clear();
+	window.location.href='index.html'
+
+}
 
 
 
