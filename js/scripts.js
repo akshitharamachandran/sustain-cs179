@@ -13,12 +13,12 @@ function generateFridge(){
 	if (localStorage.fridge) {
 		fridge = JSON.parse(localStorage.fridge)
 	}
-	var table = "<table align='center'><tr><td>Item</td><td>Quantity</td><td>Expiration</td></tr>"
+	var table = "<table class='table'><thead class='thead-light'><tr><th scope='col'>Item</th><th scope='col'>Quantity</th><th scope='col'>Expiration</th></tr></thead><tbody>"
 	for (var item in fridge){
 		table += "<tr><td>"+ item +"</td><td>"+ fridge[item][0] + "</td>" +
 					"<td>"+ fridge[item][1] +"</td></tr>"
 	}
-	table += "</table>"
+	table += "</tbody></table>"
 	document.getElementById("fridgeContent").innerHTML = table
 }
 
@@ -28,11 +28,11 @@ function generateEditableTable(){
 
 	document.getElementById("addContent").style.display = "block" 
 
-	var table = "<p>Click on any field to edit it</p><table align='center'><tr><td>Item</td><td>Quantity</td><td>Expiration</td></tr>"
+	var table = "<p>Click on any field to edit it</p><table class='table'><thead class='thead-light'><tr><th scope='col'>Item</th><th scope='col'>Quantity</th><th scope='col'>Expiration</th></tr></thead><tbody>"
 	for (var item in fridge){
 		table += "<tr><td contenteditable='true' class='item'>"+ item +"</td><td contenteditable='true' class='quantity'>"+ fridge[item][0] +"</td><td contenteditable='true' class='expiration'>"+ fridge[item][1] +"</td></tr>"
 	}
-	table += "</table>"
+	table += "</tbody></table>"
 	document.getElementById("fridgeContent").innerHTML = table
 	document.getElementById('addContent').style.display = "block"
 }

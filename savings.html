@@ -4,7 +4,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 	<script src="js/scripts.js"></script>
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -54,9 +53,21 @@
 			<p>In the past month, you've saved: $112.32!</p>
 			<p>Your Consumption in April:</p>
 			<p><b>Overall:</b> $434 of $570 Spent</p>
+			<div class="progress">
+			    <div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width:76%">76%</div>
+			</div>
 			<p><b>Fruits:</b> $63 of $130 Spent</p>
+			<div class="progress">
+			    <div class="progress-bar" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" style="width:48%">48%</div>
+			</div>
 			<p><b>Vegetables:</b> $138 of $170 Spent</p>
+			<div class="progress">
+			    <div class="progress-bar" role="progressbar" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100" style="width:81%">81%</div>
+			</div>
 			<p><b>Meat:</b> $234 of $270 Spent</p>
+			<div class="progress">
+			    <div class="progress-bar" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width:87%">87%</div>
+			</div>
 			<button class="btn btn-primary" id="myBtn">View Leaderboard</button>
 		</div>
 	<div>
@@ -83,7 +94,7 @@
 	// When the user clicks the button, open the modal
 	btn.onclick = function() {
 	    modal.style.display = "block";
-	    var modalText = "Leaderboard: <br><br> <table align='center'> <tbody> <tr> <th>Rank</th> <th>Username</th> <th>Points</th> </tr> <tr> <td>1</td> <td>Nam</td> <td>102,345</td> </tr> <tr> <td>2</td> <td>Akshitha</td> <td>101,321</td> </tr> <tr> <td>3</td> <td>Nik</td> <td>96,321</td> </tr> <tr> <td>4</td> <td>Greg</td> <td>96,321</td> </tr> <tr> <td>3</td> <td>Sathvik</td> <td>91,321</td> </tr> <tr> <td>5</td> <td>Rory</td> <td>86,423</td> </tr> <tr> <td>...</td> <td>...</td> <td>...</td> </tr> <tr> <td>29343</td> <td>You</td> <td>20</td> </tr> </tbody> </table>"
+	    var modalText = "Leaderboard: <br><br> <table class='table' align='center'><thead class='thead-light'><tr> <th scope='col'>Rank</th> <th scope='col'>Username</th> <th scope='col'>Points</th> </tr></thead> <tbody> <tr> <td>1</td> <td>Nam</td> <td>102,345</td> </tr> <tr> <td>2</td> <td>Akshitha</td> <td>101,321</td> </tr> <tr> <td>3</td> <td>Nik</td> <td>96,321</td> </tr> <tr> <td>4</td> <td>Greg</td> <td>96,321</td> </tr> <tr> <td>3</td> <td>Sathvik</td> <td>91,321</td> </tr> <tr> <td>5</td> <td>Rory</td> <td>86,423</td> </tr> <tr> <td>...</td> <td>...</td> <td>...</td> </tr> <tr> <td>29343</td> <td>You</td> <td>20</td> </tr> </tbody> </table>"
 	    document.getElementById("confirmModalText").innerHTML = modalText
 	}
 
