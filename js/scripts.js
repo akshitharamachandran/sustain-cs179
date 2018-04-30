@@ -1,10 +1,10 @@
 var fridge = {
-		Apples : ["12", "4/4"],
-		Eggs : ["14", "4/5"],
-		Milk : ["1", "4/10"],
-		Chicken : ["2", "4/6"],
-		Bananas  : ["5", "4/1"]
-	}
+	Apples : ["12", "4/4"],
+	Eggs : ["14", "4/5"],
+	Milk : ["1", "4/10"],
+	Chicken : ["2", "4/6"],
+	Bananas  : ["5", "4/1"]
+}
 var allStores = ["Walgreens", "Costco", "Walmart", "Target", "CVS"]
 var myStores = [ "Walgreens", "Costco"]
 
@@ -13,8 +13,13 @@ function generateFridge(){
 	if (localStorage.fridge) {
 		fridge = JSON.parse(localStorage.fridge)
 	}
+
+	var keys = Object.keys(fridge)
+	keys.sort()
+
 	var table = "<table class='table'><thead class='thead-light'><tr><th scope='col'>Item</th><th scope='col'>Quantity</th><th scope='col'>Expiration</th></tr></thead><tbody>"
-	for (var item in fridge){
+	for (var i = 0; i < keys.length; i++){
+		var item = keys[i]
 		table += "<tr><td>"+ item +"</td><td>"+ fridge[item][0] + "</td>" +
 					"<td>"+ fridge[item][1] +"</td></tr>"
 	}
@@ -28,8 +33,12 @@ function generateEditableTable(){
 
 	document.getElementById("addContent").style.display = "block" 
 
-	var table = "<p>Click on any field to edit it</p><table class='table'><thead class='thead-light'><tr><th scope='col'>Item</th><th scope='col'>Quantity</th><th scope='col'>Expiration</th></tr></thead><tbody>"
-	for (var item in fridge){
+	var keys = Object.keys(fridge)
+	keys.sort()
+
+	var table = "<p>Click on any field to edit it</p><table class='table' style='color: #337ab7'><thead class='thead-light'><tr><th scope='col'>Item</th><th scope='col'>Quantity</th><th scope='col'>Expiration</th></tr></thead><tbody>"
+	for (var i = 0; i < keys.length; i++){
+		var item = keys[i]
 		table += "<tr><td contenteditable='true' class='item'>"+ item +"</td><td contenteditable='true' class='quantity'>"+ fridge[item][0] +"</td><td contenteditable='true' class='expiration'>"+ fridge[item][1] +"</td></tr>"
 	}
 	table += "</tbody></table>"
@@ -71,12 +80,11 @@ function generateListOfFoods(elementId){
 }
 
 var slist = [ 
-	'Apples',
-	'Bananas',
-	'Carrots',
-	'Chips',
-	'Lime Juice',
-	'Strawberries'
+	"Apples (2)",
+	"Bananas (12)",
+	"Carrots (5)",
+	"Chips (1)",
+	"Strawberries (2)"
 ]
 
 
@@ -85,9 +93,10 @@ function generateSlist(){
 		slist = JSON.parse(localStorage.getItem("slist"))
 	}
 	
+	slist.sort()
 
 	var list = "<p>"
-	for (var i = 0; i < slist.length ; i++){
+	for (var i = 0; i < slist.length; i++){
 		list += "<div class=sitem>" + slist[i] + "</div>"
 	}
 	list += "</p>"
@@ -99,7 +108,7 @@ function generateEditableForm(){
 	document.getElementById("editFormButton").style.display = "none"
 	document.getElementById("listsaveButton").style.display = "inline-block"
 
-	var inputFieldHTML = "<input id='inputFood' placeholder='Item'></input>"
+	var inputFieldHTML = "<input id='inputFood' placeholder='Item'></input><input id='inputQuant' placeholder='Quantity'></input>"
 
 	document.getElementById("addSlistContent").innerHTML = inputFieldHTML
 	document.getElementById('addSlistContent').style.display = "block"
@@ -113,8 +122,9 @@ function saveEditedList(){
 		newSlist.push(items[i].innerHTML)
 	}
 	if (document.getElementById('inputFood').value){
-		newSlist.push(document.getElementById('inputFood').value)
-	}	
+		var newItem = document.getElementById('inputFood').value + " (" + document.getElementById('inputQuant').value + ")"
+		newSlist.push(newItem)
+	}
 
 	localStorage.setItem("slist", JSON.stringify(newSlist));
 	generateSlist()
